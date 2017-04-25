@@ -25,7 +25,7 @@
 {
   [super reactSetFrame:frame];
   if (_animationView != nil) {
-    [_animationView reactSetFrame:frame];
+    [_animationView setFrame:self.bounds];
   }
 }
 
@@ -79,7 +79,7 @@
   }
   _animationView = next;
   [self addSubview: next];
-  [_animationView reactSetFrame:self.frame];
+  [_animationView setFrame:self.bounds];
   [self applyProperties];
 }
 

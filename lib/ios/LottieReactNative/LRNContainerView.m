@@ -58,9 +58,9 @@
   [self replaceAnimationView:[LOTAnimationView animationNamed:name]];
 }
 
-- (void)play {
+- (void)playWithCompletion:(LOTAnimationCompletionBlock)completion {
   if (_animationView != nil) {
-    [_animationView play];
+    [_animationView playWithCompletion:completion];
   }
 }
 

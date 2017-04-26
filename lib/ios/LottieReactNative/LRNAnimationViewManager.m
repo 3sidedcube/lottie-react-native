@@ -52,7 +52,9 @@ RCT_EXPORT_VIEW_PROPERTY(progress, CGFloat);
 RCT_EXPORT_VIEW_PROPERTY(loop, BOOL);
 RCT_EXPORT_VIEW_PROPERTY(speed, CGFloat);
 
-RCT_EXPORT_METHOD(play:(nonnull NSNumber *)reactTag)
+RCT_EXPORT_METHOD(play:(nonnull NSNumber *)reactTag
+                  resolver:(RCTPromiseResolveBlock)resolve
+                  rejecter:(RCTPromiseRejectBlock)reject)
 {
   [self.bridge.uiManager addUIBlock:^(__unused RCTUIManager *uiManager, NSDictionary<NSNumber *, UIView *> *viewRegistry) {
     id view = viewRegistry[reactTag];
@@ -60,7 +62,9 @@ RCT_EXPORT_METHOD(play:(nonnull NSNumber *)reactTag)
       RCTLogError(@"Invalid view returned from registry, expecting LottieContainerView, got: %@", view);
     } else {
       LRNContainerView *lottieView = (LRNContainerView *)view;
-      [lottieView play];
+      [lottieView playWithCompletion:^(BOOL animationFinished) {
+          resolve(@{@"finished": @(animationFinished)});
+      }];
     }
   }];
 }

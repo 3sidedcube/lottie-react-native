@@ -26,7 +26,7 @@
 @property (nonatomic, strong) NSDictionary *sourceJson;
 @property (nonatomic, strong) NSString *sourceName;
 
-- (void)play;
+- (void)playWithCompletion:(LOTAnimationCompletionBlock)completion;
 - (void)reset;
 
 @end

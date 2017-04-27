@@ -25,7 +25,7 @@
 {
   [super reactSetFrame:frame];
   if (_animationView != nil) {
-    [_animationView reactSetFrame:frame];
+    [_animationView setFrame:self.bounds];
   }
 }
 
@@ -58,9 +58,9 @@
   [self replaceAnimationView:[LOTAnimationView animationNamed:name]];
 }
 
-- (void)play {
+- (void)playWithCompletion:(LOTAnimationCompletionBlock)completion {
   if (_animationView != nil) {
-    [_animationView play];
+    [_animationView playWithCompletion:completion];
   }
 }
 
@@ -79,7 +79,7 @@
   }
   _animationView = next;
   [self addSubview: next];
-  [_animationView reactSetFrame:self.frame];
+  [_animationView setFrame:self.bounds];
   [self applyProperties];
 }
 

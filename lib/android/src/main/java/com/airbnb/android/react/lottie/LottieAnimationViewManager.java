@@ -75,7 +75,7 @@ class LottieAnimationViewManager extends SimpleViewManager<LottieAnimationView> 
 
   @ReactProp(name = "sourceName")
   public void setSourceName(LottieAnimationView view, String name) {
-    view.setAnimation(name);
+    view.setAnimation(name, LottieAnimationView.CacheStrategy.Strong);
   }
 
   @ReactProp(name = "sourceJson")

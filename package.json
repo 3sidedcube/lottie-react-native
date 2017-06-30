@@ -44,7 +44,7 @@
   "dependencies": {
     "invariant": "^2.2.2",
     "react-native-safe-module": "^1.1.0",
-    "lottie-ios": "^1.5.2"
+    "lottie-ios": "git+https://github.com/3sidedcube/lottie-ios.git#fix/setting_progress"
   },
   "devDependencies": {
     "babel-eslint": "^6.1.2",

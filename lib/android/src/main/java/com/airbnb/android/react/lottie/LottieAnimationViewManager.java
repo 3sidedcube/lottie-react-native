@@ -77,9 +77,7 @@ class LottieAnimationViewManager extends SimpleViewManager<LottieAnimationView> 
 
   @ReactProp(name = "sourceName")
   public void setSourceName(LottieAnimationView view, String name) {
-    String imageAssetsFolder = name.substring(0, Math.max(name.lastIndexOf('/'), 0));
-    view.setImageAssetsFolder(imageAssetsFolder);
-    view.setAnimation(name, LottieAnimationView.CacheStrategy.Strong);
+    view.setAnimation(name);
   }
 
   @ReactProp(name = "sourceJson")
